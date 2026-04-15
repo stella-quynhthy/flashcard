@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #r1 {
@@ -11,11 +12,18 @@ body {
 }
 
 #card {
-    width: 400px;
+    width: 450px;
     border: 2px solid black;
-    height: 350px;
+    height: 300px;
     display:flex;
     align-items: center;
     justify-content: center;
     margin:15px;
+    box-shadow: 20px 20px 50px grey;
+    border-radius: 15px;
+}
+
+button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
 }

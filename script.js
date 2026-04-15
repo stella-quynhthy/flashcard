@@ -10,12 +10,24 @@ const card = document.getElementById("card");
 const cardFront = document.getElementById("front");
 const cardBack = document.getElementById("back");
 let cardIndex = 0;
+let isFlipped = false;
+
 
 cardFront.textContent = cards[cardIndex].question;
+cardBack.textContent = cards[cardIndex].answer;
 
-card.addEventListener("click", () => {
-    cardFront.textContent = "";
-    cardBack.textContent = cards[cardIndex].answer;
+card.addEventListener("click", function() {
+    //cardFront.textContent = "";
+    //cardBack.textContent = cards[cardIndex].answer;
+    isFlipped = !isFlipped;
+    if (isFlipped) {
+        cardFront.style.display = "none";
+        cardBack.style.display = "block";
+
+    } else {
+        cardFront.style.display = "block";
+        cardBack.style.display = "none";
+    }
 })
 
 nxtBtn.addEventListener("click", () => {
@@ -24,8 +36,9 @@ nxtBtn.addEventListener("click", () => {
     } else {
         cardIndex+=1;
         console.log(cardIndex)
-        cardBack.textContent = "";
+        //cardBack.textContent = "";
         cardFront.textContent = cards[cardIndex].question;
+        cardBack.textContent = cards[cardIndex].answer;
     }
 })
 
@@ -34,7 +47,8 @@ prevBtn.addEventListener("click", () => {
         alert("You Cannot Go Back Past The First Question")
     } else {
         cardIndex-=1;
-        cardBack.textContent = "";
+        //cardBack.textContent = "";
         cardFront.textContent = cards[cardIndex].question;
+        cardBack.textContent = cards[cardIndex].answer;
     }
 })
