@@ -19,6 +19,7 @@ cardBack.textContent = cards[cardIndex].answer;
 card.addEventListener("click", function() {
     //cardFront.textContent = "";
     //cardBack.textContent = cards[cardIndex].answer;
+    //updated ver
     isFlipped = !isFlipped;
     if (isFlipped) {
         cardFront.style.display = "none";
@@ -32,7 +33,7 @@ card.addEventListener("click", function() {
 
 nxtBtn.addEventListener("click", () => {
     if (cardIndex == cards.length-1) {
-        alert("No More Questions Available")
+        alert("No Questions Available")
     } else {
         cardIndex+=1;
         console.log(cardIndex)
