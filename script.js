@@ -1,3 +1,4 @@
+//------------------------------Question & Answer Object------------------------------------
 const cards = {science:[
     {question: "Squestion1", answer: "Sanswer1"},
     {question: "Squestion2", answer: "Sanswer2"},
@@ -9,7 +10,7 @@ const cards = {science:[
     {question: "Mquestion3", answer: "Manswer3"}]
 }
 
-
+//---------------------------------HTML Elements--------------------------------------------------
 const prevBtn = document.getElementById("prevBtn");
 const nxtBtn = document.getElementById("nxtBtn");
 const card = document.getElementById("card");
@@ -20,24 +21,34 @@ const mathBtn = document.getElementById("math");
 let cardIndex = 0;
 let isFlipped = false;
 let catergory = "";
+let questionLimit = cards[catergory].length-1;
+//Gives an error 4 length
 
+//--------------------------------Switch Catergories-----------------------------------------
 function changeCatergory(catergories) {
+    catergory = catergories;
     if (catergory === "") {
         return;
     }
-    document.getElementById.textContent = cards[catergory][cardIndex]
+    document.getElementById.textContent = cards.catergory
     if (catergories === "science") {
-        catergory = "science";
+        cardFront.textContent = cards[catergory][cardIndex].question;
+        cardBack.textContent = cards[catergory][cardIndex].answer;
+    };
+    if (catergory=== "math") {
+        cardFront.textContent = cards[catergory][cardIndex].question;
+        cardBack.textContent = cards[catergory][cardIndex].answer;
     }
+
 
 
 
 }
 
 
-cardFront.textContent = cards[catergory][cardIndex].question;
-cardBack.textContent = cards[catergory][cardIndex].answer;
 
+
+//--------------------------------Flipping Cards & Prev/Nxt-----------------------------------
 card.addEventListener("click", function() {
     //cardFront.textContent = "";
     //cardBack.textContent = cards[cardIndex].answer;
@@ -54,11 +65,12 @@ card.addEventListener("click", function() {
 })
 
 nxtBtn.addEventListener("click", () => {
-    if (cardIndex == cards.length-1) {
+    if(cardIndex>=questionLimit) {
         alert("No Questions Available")
+        console.log(questionLimit);
     } else {
-        cardIndex+=1;
-        console.log(cardIndex)
+        questionLimit+=1;
+        console.log(questionLimit)
         //cardBack.textContent = "";
         cardFront.textContent = cards[catergory][cardIndex].question;
         cardBack.textContent = cards[catergory][cardIndex].answer;
@@ -66,7 +78,7 @@ nxtBtn.addEventListener("click", () => {
 })
 
 prevBtn.addEventListener("click", () => {
-    if (cardIndex == 0) {
+    if (cardIndex === 0) {
         alert("You Cannot Go Back Past The First Question")
     } else {
         cardIndex-=1;
