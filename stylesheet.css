@@ -1,6 +1,8 @@
 body {
     text-align: center;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /*linear-gradient: (blue, red);*/
+    background-color: rgb(195, 195, 234);
 }
 
 #r1 {
@@ -21,9 +23,31 @@ body {
     margin:15px;
     box-shadow: 20px 20px 50px grey;
     border-radius: 15px;
+    background-color: white;
 }
 
 button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 10px;
+    border-radius: 5px;
+}
+
+#sciTech {
+    background-color:rgb(193, 240, 193);
+}
+
+#math {
+    background-color: rgb(239, 140, 140);
+}
+
+#history {
+    background-color: rgb(249, 249, 168);
+}
+
+#spanishvocab {
+    background-color: rgb(243, 217, 168);
+}
+
+#prevBtn, #nxtBtn {
+    background-color: rgb(139, 138, 139);
 }

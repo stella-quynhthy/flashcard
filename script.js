@@ -1,24 +1,24 @@
 //------------------------------Question & Answer Object------------------------------------
 const cards = {
     science: [
-        { question: "Squestion1", answer: "Sanswer1" },
-        { question: "Squestion2", answer: "Sanswer2" },
-        { question: "Squestion3", answer: "Sanswer3" }
+        { question: "What is the first planet?", answer: "Mercury" },
+        { question: "What is a computer?", answer: "An electornic device that allows the transmission and retrieval of information" },
+        { question: "What is a cell?", answer: "The basic building block of life" }
     ],
     math: [
-        { question: "Mquestion1", answer: "Manswer1" },
-        { question: "Mquestion2", answer: "Manswer2" },
-        { question: "Mquestion3", answer: "Manswer3" }
+        { question: "625/25", answer: "25" },
+        { question: "13•13", answer: "169" },
+        { question: "5+5", answer: "10" }
     ],
     history: [
-        { question: "Hquestion1", answer: "Hanswer1" },
-        { question: "Hquestion2", answer: "Hanswer2" },
-        { question: "Hquestion3", answer: "Hanswer3" }
+        { question: "When did the Japanese bomb Pearl Harbor? (Date & Time)", answer: "December 7, 1941, 7:00" },
+        { question: "Who was the first president of the U.S?", answer: "George Washington" },
+        { question: "What were the group of students who helped Mao during thr Cultural Revolution called?", answer: "Red Guard" }
     ],
     spanishvocab: [
-        { question: "Vquestion1", answer: "Vanswer1" },
-        { question: "Vquestion2", answer: "Vanswer2" },
-        { question: "Vquestion3", answer: "Vanswer3" }
+        { question: "Mochila", answer: "Backpack" },
+        { question: "Maestro/a", answer: "Teacher" },
+        { question: "Nuestro/a", answer: "Our" }
     ]
 };
 
@@ -60,7 +60,7 @@ function updateCard() {
 }
 
 //--------------------------------Flipping Cards & Prev/Nxt-----------------------------------
-card.addEventListener("click", function () {
+function flip() {
     if (!category) {
         return;
     }
@@ -73,7 +73,7 @@ card.addEventListener("click", function () {
         cardFront.style.display = "block";
         cardBack.style.display = "none";
     }
-});
+}
 
 function goNext() {
     if (!category) {
@@ -121,3 +121,13 @@ document.addEventListener("keydown", (e) => {
         goPrev();
     }
 });
+
+card.addEventListener("click", flip);
+document.addEventListener("keypress", (e) => {
+    if (e.key === " ") {
+        flip();
+    }
+})
+
+
+//let name =prompt("What isyourname?")
