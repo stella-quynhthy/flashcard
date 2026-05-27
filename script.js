@@ -65,6 +65,7 @@ function flip() {
         return;
     }
 
+    card.classList.toggle("flipped");
     isFlipped = !isFlipped;
     if (isFlipped) {
         cardFront.style.display = "none";
@@ -123,11 +124,12 @@ document.addEventListener("keydown", (e) => {
 });
 
 card.addEventListener("click", flip);
-document.addEventListener("keypress", (e) => {
+document.addEventListener("keydown", (e) => {
     if (e.key === " ") {
+        e.preventDefault();
         flip();
     }
-})
+});
 
 
 //let name =prompt("What isyourname?")
