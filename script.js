@@ -28,10 +28,11 @@ const nxtBtn = document.getElementById("nxtBtn");
 const card = document.getElementById("card");
 const cardFront = document.getElementById("front");
 const cardBack = document.getElementById("back");
-let cardIndex = 0;
+let cardIndex = Math.floor(Math.random(questionLimit) * cards[category].length);
 let isFlipped = false;
 let category = "";
-let questionLimit = 0;
+let questionLimit = 0;    
+let temp = cards[category][cardIndex];
 
 //--------------------------------Switch Categories-----------------------------------------
 function changeCategory(newCategory) {
@@ -46,6 +47,7 @@ function changeCategory(newCategory) {
     cardFront.style.display = "block";
     cardBack.style.display = "none";
 
+
     cardFront.textContent = cards[category][cardIndex].question;
     cardBack.textContent = cards[category][cardIndex].answer;
 }
@@ -59,6 +61,9 @@ function updateCard() {
     cardBack.textContent = cards[category][cardIndex].answer;
 }
 
+//---------------------------------Shuffle Cards----------------------------------------- 
+
+
 //--------------------------------Flipping Cards & Prev/Nxt-----------------------------------
 function flip() {
     if (!category) {
@@ -70,7 +75,7 @@ function flip() {
     if (isFlipped) {
         cardFront.style.display = "none";
         cardBack.style.display = "block";
-    } else {
+    } else { 
         cardFront.style.display = "block";
         cardBack.style.display = "none";
     }
@@ -91,6 +96,7 @@ function goNext() {
     isFlipped = false;
     cardFront.style.display = "block";
     cardBack.style.display = "none";
+    card.classList.remove("flipped");
     updateCard();
 }
 
@@ -109,6 +115,7 @@ function goPrev() {
     isFlipped = false;
     cardFront.style.display = "block";
     cardBack.style.display = "none";
+    card.classList.remove("flipped");
     updateCard();
 }
 
