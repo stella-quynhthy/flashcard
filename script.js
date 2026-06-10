@@ -28,11 +28,10 @@ const nxtBtn = document.getElementById("nxtBtn");
 const card = document.getElementById("card");
 const cardFront = document.getElementById("front");
 const cardBack = document.getElementById("back");
-let cardIndex = Math.floor(Math.random(questionLimit) * cards[category].length);
+let cardIndex = 0;
 let isFlipped = false;
 let category = "";
-let questionLimit = 0;    
-let temp = cards[category][cardIndex];
+let questionLimit = 0;
 
 //--------------------------------Switch Categories-----------------------------------------
 function changeCategory(newCategory) {
@@ -40,6 +39,7 @@ function changeCategory(newCategory) {
         return;
     }
 
+    card.classList.remove("flipped");
     category = newCategory;
     cardIndex = 0;
     questionLimit = cards[category].length - 1;
