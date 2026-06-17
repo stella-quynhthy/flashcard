@@ -63,6 +63,12 @@ function updateCard() {
 
 //---------------------------------Shuffle Cards----------------------------------------- 
 
+function shuffleCards(array) {
+    for (let i = array.length-1; i > 0; i--){
+        const swap = Math.floor(Math.random()*(i+1));
+        [array[i],array[swap]] = [array[swap],array[i]];
+    }
+}
 
 //--------------------------------Flipping Cards & Prev/Nxt-----------------------------------
 function flip() {
@@ -77,6 +83,7 @@ function flip() {
         cardBack.style.display = "block";
     } else { 
         cardFront.style.display = "block";
+       // cardFront.textContent = cardIndex+1;
         cardBack.style.display = "none";
     }
 }
@@ -138,5 +145,9 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+shuffleCards(cards.science);
+shuffleCards(cards.math);
+shuffleCards(cards.history);
+shuffleCards(cards.spanishvocab);
 
 //let name =prompt("What isyourname?")
